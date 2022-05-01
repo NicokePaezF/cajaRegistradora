@@ -40,4 +40,12 @@ total = 0
 for product in invoice.get('details'):
     print(f'{product["code_product"]} {product["name_product"]} {product["quantity"]} {product["price"]} {product["quantity"] * product["price"]}')
     total += product["quantity"] * product["price"]
-print(f'Total a pagar: {total}')
+print(f'Total to pay: {total}')
+
+with open('invoice.txt', 'w') as file:
+    file.write(f'customer: {invoice.get("rut_customer")}\n')
+    file.write(f'mail: {invoice.get("mail_customer")}\n')
+    file.write(f'date: {invoice.get("date_now")}\n')
+    for product in invoice.get('details'):
+        file.write(f'{product["code_product"]} {product["name_product"]} {product["quantity"]} {product["price"]} {product["quantity"] * product["price"]} \n')
+    file.write(f'Total to pay: {total}\n')
