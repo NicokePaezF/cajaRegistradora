@@ -16,15 +16,15 @@ state = True
 while state:
     code_product = input('Enter the product code: ')
     name_product = input('Enter the product name: ')
-    category = input('Enter the product category : ')
-    price = input('Enter the product price : ')
-    quantity = input('Enter the product quantity : ')
+    category = input('Enter the product category: ')
+    price = int(input('Enter the product price: '))
+    quantity = int(input('Enter the product quantity: '))
     details = {
         'code_product': code_product,
         'name_product': name_product,
         'category': category,
         'price': price,
-        'quantity ': quantity 
+        'quantity': quantity
     }
     invoice.get('details').append(details)
     answer = input('do you wish to continue? yes/no')
@@ -32,3 +32,12 @@ while state:
     if answer == 'no':
         state = False
 
+print(f'customer: {invoice.get("rut_customer")}')
+print(f'mail: {invoice.get("mail_customer")}')
+print(f'date: {invoice.get("date_now")}')
+total = 0
+
+for product in invoice.get('details'):
+    print(f'{product["code_product"]} {product["name_product"]} {product["quantity"]} {product["price"]} {product["quantity"] * product["price"]}')
+    total += product["quantity"] * product["price"]
+print(f'Total a pagar: {total}')
