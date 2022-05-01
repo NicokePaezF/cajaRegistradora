@@ -18,13 +18,13 @@ while state:
     name_product = input('Enter the product name: ')
     category = input('Enter the product category : ')
     price = input('Enter the product price : ')
-    amount = input('Enter the product amount: ')
+    quantity = input('Enter the product quantity : ')
     details = {
         'code_product': code_product,
         'name_product': name_product,
         'category': category,
         'price': price,
-        'amount': amount
+        'quantity ': quantity 
     }
     invoice.get('details').append(details)
     answer = input('do you wish to continue? yes/no')
