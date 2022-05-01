@@ -1,6 +1,11 @@
 import datetime
+import logging
 # {}: dictionary
 # []: list
+
+
+logging.basicConfig(filename='cajaRegistradora.log', encoding='utf-8', level=logging.DEBUG)
+logging.info('This is our first log and it will be saved in the file CajaRegistradora.log')
 
 invoice = {}
 rut_customer = input("Enter RUT customer, to associate them with their points:")
